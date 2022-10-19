@@ -43,7 +43,7 @@ class MyCircularQueue:
 
     def is_empty(self):
         # Write code here
-        if self.rear == -1 and self.rear == self.front:
+        if self.rear == -1 or ((self.rear+1)%self.size == self.front%self.size):
             return True
         else:
             return False
