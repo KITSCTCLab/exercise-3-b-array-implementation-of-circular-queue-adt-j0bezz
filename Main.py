@@ -12,10 +12,12 @@ class MyCircularQueue:
             self.rear+=1
             self.front+=1
             self.stack.append(value)
+            return True
         
         else:
             if not self.is_full():
                 self.rear+=1
+                
                 self.stack.append(value)
                 return True
             else:
@@ -24,7 +26,9 @@ class MyCircularQueue:
     def dequeue(self) -> bool:
         # Write code here
         if not self.is_empty():
+            self.stack.pop(self.front)
             self.front+=1
+        
             return True
         else:
             return False
@@ -48,7 +52,7 @@ class MyCircularQueue:
 
     def is_full(self):
         # Write code here
-        if (self.rear==self.front and self.rear==self.size) or (self.front==1 and self.rear==self.size):
+        if ((self.rear%self.size)+1==self.front%self.size) or (self.front==0 and (self.rear%self.size)+1==self.size)):
             return True
         else:
             return False
