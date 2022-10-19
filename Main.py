@@ -11,7 +11,7 @@ class MyCircularQueue:
         if self.is_empty():
             self.rear+=1
             self.front+=1
-            self.stack[self.rear]=value
+            self.stack.append(value)
         
         else:
             if not self.is_full():
