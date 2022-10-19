@@ -9,16 +9,16 @@ class MyCircularQueue:
     def enqueue(self, value: int) -> bool:
         # Write code here
         if self.is_empty():
-            self.rear += 1
-            self.front += 1
+            self.rear == 1
+            self.front == 0
             self.stack.append(value)
             return True
 
         else:
             if not self.is_full():
+                self.stack.insert(self.rear,value)
                 self.rear += 1
                 self.rear %= self.size
-                self.stack.insert(self.rear,value)
                 return True
             else:
                 return False
