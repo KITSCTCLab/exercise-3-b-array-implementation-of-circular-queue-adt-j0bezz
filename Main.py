@@ -8,12 +8,18 @@ class MyCircularQueue:
 
     def enqueue(self, value: int) -> bool:
         # Write code here
-        if not self.is_full():
+        if self.is_empty():
             self.rear+=1
+            self.front+=1
             self.stack[self.rear]=value
-            return True
+        
         else:
-            return False
+            if not self.is_full():
+                self.rear+=1
+                self.stack[self.rear]=value
+                return True
+            else:
+                return False
 
     def dequeue(self) -> bool:
         # Write code here
